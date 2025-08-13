@@ -1,0 +1,21 @@
+{
+  "name": "playwrightdemo",
+  "version": "1.0.0",
+  "main": "index.js",
+    "scripts": {
+  "login-test": "npx playwright test \"MyTests/MyTests_POM/loginTestPOM.spec.ts\""
+},
+
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.54.1",
+    "@types/node": "^24.1.0",
+    "typescript": "^5.8.3"
+   
+}
+
+  }
+
