@@ -1,0 +1,8 @@
+{
+  "firstname": "Test",
+  "lastname": "User",
+  "telephone": "1234567890",
+  "password": "Test@1234",
+  "confirm": "Test@1234",
+  "agree": "1"
+}
