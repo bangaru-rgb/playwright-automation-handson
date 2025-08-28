@@ -12,5 +12,8 @@ test('login test', async () => {
     await page.getByText('Register').first().click();
     await page.screenshot({ path: 'registrepage.png' });
     await page.waitForTimeout(5000);
+<<<<<<< HEAD
     
+=======
+>>>>>>> d48ffc25704bd1a1285616b86ee091c1632a56b4
 });
