@@ -6,6 +6,7 @@ import { chromium, webkit, firefox } from "playwright";
 import { homePage } from '../Pages/homePage';
 import { error } from "console";
 
+
 export class LoginPage {
 
   constructor(private page: Page) { }
@@ -33,7 +34,7 @@ export class LoginPage {
       throw error;
     };
     console.log("It just clicked on Submit button.")
-    
+    console.log (`user loging in is ${username}}`);
      const hp = new homePage(this.page);
      return hp;
      }

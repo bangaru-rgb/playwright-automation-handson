@@ -1,22 +1,21 @@
-// loginTest.spec.ts
-import { test, expect, chromium, Page } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 import { LoginPage } from '../Pages/LoginPage';
 import { homePage } from '../Pages/homePage';
-import cdata from '../Testdata/logindata.json';
+import userdata from '../Testdata/logindata.json';
 
-for(const LoginCreds of cdata)
+test.describe.configure({ mode: 'serial' }); // This step is to run the scripts in sequencal.
+
+for(const LoginCreds of userdata)
 {
-test('login using POM_datadrvien for ${LoginCreds.userid}', async ({ page }) => {
+test(`login using POM_datadrvien for ${LoginCreds.userid}`, async ({ page }) => {
 
-  const loginPage = new LoginPage(page);
+  const loginPage = await new LoginPage(page);
   console.log("Test started at:", new Date().toISOString());
   //console.log("You are calling Login function to enter credentails.");
   await loginPage.launchTheURL();
 
-
-  const HP_LTP = await loginPage.login('bangarunaidu@gmail.com', 'Job@2022');
+  const HP_LTP = await loginPage.login(LoginCreds.userid, LoginCreds.password);
   await HP_LTP.HomepageValidation();
 
-
-})
-};
+});
+}

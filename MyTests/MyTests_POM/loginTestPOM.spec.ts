@@ -11,7 +11,7 @@ test('login using POM', async ({ page }) => {
   await loginPage.launchTheURL();
 
 
-  const HP_LTP = await loginPage.login('bangarunaidu@gmail.co', 'Job@2022');
+  const HP_LTP = await loginPage.login('bangarunaidu@gmail.com', 'Test@123');
   await HP_LTP.HomepageValidation();
 
 });
