@@ -5,7 +5,7 @@ import { register } from "module";
 import { chromium, webkit, firefox } from "playwright";
 const authfile = "Testdata/auth.json";
 
-test.skip('login test', async () => {
+test('login test', async () => {
   const browser: Browser = await chromium.launch({ headless: false, channel: 'chrome' });
  
   const page: Page = await browser.newPage()

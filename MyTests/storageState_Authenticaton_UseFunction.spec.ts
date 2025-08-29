@@ -5,7 +5,7 @@ import { register } from "module";
 import { chromium, webkit, firefox } from "playwright";
 const authfile = "Testdata/auth.json";
 
-use: {storageState: authfile};
+//use: {storageState: authfile};
 test('login test', async () => {
   const browser: Browser = await chromium.launch({ headless: false, channel: 'chrome' });
 
@@ -28,8 +28,8 @@ test('login test', async () => {
   console.log("This is the last statement of the project");
 
 });
-//test.use({ storageState: authfile });
-test.skip('MyAccount test', async ({ page }) => {
+test.use({ storageState: authfile });
+test('MyAccount test', async ({ page }) => {
   //const browser: Browser = await chromium.launch({ headless: false, channel: 'chrome' });
   // const browsweContext1:BrowserContext = await browser.newContext({storageState: authfile});
   // const page: Page = await browsweContext1.newPage()
