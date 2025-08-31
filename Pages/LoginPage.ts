@@ -14,11 +14,9 @@ export class LoginPage {
   async launchTheURL() {
    
     console.log("Page is launching, hang on!!!")
-    await this.page.goto("./index.php?route=account/login");
+    await this.page.goto("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
 
     await this.page.screenshot({path: 'Landingpage.png'});
-
-
   }
 
   async login(username: string, password: string) {
