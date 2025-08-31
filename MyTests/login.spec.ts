@@ -11,16 +11,10 @@ test('login test', async () => {
   //const MyAccountDropdown: Locator = page.getByRole('combobox', { name: 'My Account' });
   // await page.getByRole('link', { name: ' My Account' }).click();
   // await page.getByRole('link', {name: 'Register'}).click();
-
-
   //await MyAccountDropdown.click();
-
-
-
   const emailID:Locator = await page.locator('#input-email');
   const password:Locator =  await page.locator('#input-password');
   const loginbutton = await page.locator ("[value='Login']");  
-
   await emailID.fill("bangarunaidu@gmail.com");
   await password.fill("Test@123");
   await loginbutton.click();
