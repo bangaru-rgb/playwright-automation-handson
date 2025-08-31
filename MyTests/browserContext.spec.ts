@@ -12,7 +12,7 @@ test('login test', async()=>
 //browswer1
 console.log("Browser context1 is execution initiated.");
 await page1.goto("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
-//const page2:Page = await browserContext1.newPage();
+
 const emailID1:Locator = await page1.locator('#input-email');
 const password1:Locator =  await page1.locator('#input-password');
 const loginbutton1 = await page1.locator ("[value='Login']");
@@ -26,7 +26,6 @@ const pagetitle1 = await page1.title();
 console.log("The page title is", pagetitle1);
 await page1.screenshot({path: 'homepage1.png'});
 expect(pagetitle1).toEqual('My Account');
-
 // Edit Account1
 //const editAccount1 = await page1.locator ("[Name='Edit Account']");
 // const editAccount1 = await page1.getByRole('link', { name: 'Edit your account information' });

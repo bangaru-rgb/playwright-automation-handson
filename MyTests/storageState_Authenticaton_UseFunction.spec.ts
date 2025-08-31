@@ -6,7 +6,7 @@ import { chromium, webkit, firefox } from "playwright";
 const authfile = "Testdata/auth.json";
 
 //use: {storageState: authfile}; this can be used in playwright.config.ts
-test.skip('login test', async () => {
+test('login test', async () => {
   const browser: Browser = await chromium.launch({ headless: true, channel: 'chrome' });
 
   const page: Page = await browser.newPage()
