@@ -35,6 +35,7 @@ export default defineConfig({
     //baseURL: "https://naveenautomationlabs.com/opencart/",
     screenshot:'on',
     //actionTimeout: 10000
+    //storageState: 'Testdata\auth.json',
   },
 
   /* Configure projects for major browsers */

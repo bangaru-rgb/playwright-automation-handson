@@ -7,7 +7,7 @@ const authfile = "Testdata/auth.json";
 
 //use: {storageState: authfile}; this can be used in playwright.config.ts
 test.skip('login test', async () => {
-  const browser: Browser = await chromium.launch({ headless: false, channel: 'chrome' });
+  const browser: Browser = await chromium.launch({ headless: true, channel: 'chrome' });
 
   const page: Page = await browser.newPage()
   await page.goto("https://naveenautomationlabs.com/opencart/index.php?route=account/login");

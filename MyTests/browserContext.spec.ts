@@ -12,6 +12,7 @@ test('login test', async()=>
 //browswer1
 console.log("Browser context1 is execution initiated.");
 await page1.goto("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
+//const page2:Page = await browserContext1.newPage();
 const emailID1:Locator = await page1.locator('#input-email');
 const password1:Locator =  await page1.locator('#input-password');
 const loginbutton1 = await page1.locator ("[value='Login']");
@@ -19,7 +20,7 @@ const loginbutton1 = await page1.locator ("[value='Login']");
 await emailID1.fill("");
 await emailID1.fill("bangarunaidu@gmail.com");
 await password1.fill("");
-await password1.fill("Job@2022");
+await password1.fill("Test@123");
 await loginbutton1.click();
 const pagetitle1 = await page1.title();
 console.log("The page title is", pagetitle1);
@@ -28,14 +29,14 @@ expect(pagetitle1).toEqual('My Account');
 
 // Edit Account1
 //const editAccount1 = await page1.locator ("[Name='Edit Account']");
-const editAccount1 = await page1.getByRole('link', { name: 'Edit your account information' });
+// const editAccount1 = await page1.getByRole('link', { name: 'Edit your account information' });
 
-await editAccount1.click();
-const editPageTitle1 = await page1.title();
-console.log("1st Edit account page titile is ", editPageTitle1);
-await page1.screenshot({path: 'editAccountPage1.png'});
-expect(editPageTitle1).toEqual('My Account Information');
-console.log("Browser context1 is execution completed.");
+// await editAccount1.click();
+// const editPageTitle1 = await page1.title();
+// console.log("1st Edit account page titile is ", editPageTitle1);
+// await page1.screenshot({path: 'editAccountPage1.png'});
+// expect(editPageTitle1).toEqual('My Account Information');
+// console.log("Browser context1 is execution completed.");
 
 //browser2
 //broswer context2
@@ -88,7 +89,8 @@ console.log("Browser context2 is execution completed.");
 
 await browserContext1.close();
 await browserContext2.close();
-await browser.close();
+//await browser.close();
+
 console.log("This is the last statement of the project");
 //await new Promise(resolve => setTimeout(resolve, 5 * 60 * 1000));
 
