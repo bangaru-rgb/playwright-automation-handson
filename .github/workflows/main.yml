@@ -1,11 +1,11 @@
 name: Playwright Tests
 on:
-  # push:
-  #   branches: [ main, master ]
-  # pull_request:
-  #   branches: [ main, master ]
-  schedule:
-    - cron: '44 7 * * *'  # Runs every day at 10 PM IST (16:30 UTC)
+   push:
+    branches: [ main, master ]
+    pull_request:
+    branches: [ main, master ]
+ # schedule:
+  #  - cron: '44 7 * * *'  # Runs every day at 10 PM IST (16:30 UTC)
     # - cron: '0 12 * * 1'  # Runs every Monday at 5:30 PM IST (12:00 UTC)
 
 jobs:
@@ -21,8 +21,8 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Run Playwright tests
-      run: npx playwright test Samples/Register.spec.ts --workers=1
+    - name: Run Playwright test MyTests\login.spec.ts
+      run: npx playwright test MyTests\login.spec.ts --workers=1
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
