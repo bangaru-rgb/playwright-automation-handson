@@ -5,6 +5,8 @@ import { register } from "module";
 import { chromium, webkit, firefox } from "playwright";
 
 test('login test', async () => {
+  console.log("the current dirctory of the test file is: ", __dirname);
+  console.log("Name of the  file is: ", __filename);
   const browser: Browser = await chromium.launch({ headless: true, channel: 'chrome' });
   //const browsweContext1:BrowserContext = await browser.newContext();
   const page: Page = await browser.newPage()
@@ -24,6 +26,7 @@ test('login test', async () => {
   await page.screenshot({ path: 'homepage.png' });
   //  await expect(page).toHaveScreenshot();
   expect(pagetitle).toEqual('My Account');
+  
   await page.waitForTimeout(10000);
   //await browser.close();
   console.log("This is the last statement of the project");
