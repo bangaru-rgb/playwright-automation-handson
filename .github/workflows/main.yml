@@ -22,8 +22,8 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Run Playwright test MyTests\login.spec.ts
-      run: npx playwright test MyTests\login.spec.ts --workers=1
+    - name: Run the below Playwright test 
+      run: npx playwright test MyTests/login.spec.ts --workers=1
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
