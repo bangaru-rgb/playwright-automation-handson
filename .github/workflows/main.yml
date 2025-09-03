@@ -40,5 +40,5 @@ jobs:
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: "✅ Playwright Tests Passed"
           to: "bangarunaidu@gmail.com"
-          from: "GitHub Actions"
+          from:  ${{ secrets.MAIL_USERNAME }}
           body: "All tests passed successfully!"
