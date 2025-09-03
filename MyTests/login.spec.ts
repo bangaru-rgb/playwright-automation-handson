@@ -7,7 +7,7 @@ import { chromium, webkit, firefox } from "playwright";
 test('login test', async () => {
   console.log("the current dirctory of the test file is: ", __dirname);
   console.log("Name of the  file is: ", __filename);
-  const browser: Browser = await chromium.launch({ headless: true, channel: 'chrome' });
+  const browser: Browser = await chromium.launch({ headless: false, channel: 'chrome', slowMo:1000 });
   //const browsweContext1:BrowserContext = await browser.newContext();
   const page: Page = await browser.newPage()
   await page.goto("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
