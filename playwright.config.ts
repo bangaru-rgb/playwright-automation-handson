@@ -37,6 +37,7 @@ export default defineConfig({
     screenshot:'on',
     //actionTimeout: 10000
     //storageState: 'Testdata\auth.json',
+    video: 'on',
   },
 
   /* Configure projects for major browsers */

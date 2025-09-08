@@ -1,4 +1,5 @@
 import { test, expect, chromium, Browser, Page, Locator } from '@playwright/test';
+import { Agent } from 'http';
 test('locator test', async () => {
   console.log("The sample test is running");
  const browser:Browser = await chromium.launch({headless: false, channel:'chrome'});
@@ -76,6 +77,5 @@ await expect(page.getByRole('link',{name: 'Forgotten Password'})).toBeVisible();
 console.log("This is the last statement of the project");
 //await new Promise(resolve => setTimeout(resolve, 3 * 60 * 1000));
 await page.waitForTimeout(5000);
-
 
 });
