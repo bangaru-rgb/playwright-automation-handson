@@ -1,0 +1,3 @@
+Registration Details:
+Email: testuser1758598814963@example.com
+Password: Test@1758598814963

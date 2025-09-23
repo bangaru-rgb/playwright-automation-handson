@@ -3,6 +3,9 @@ import { test, expect, Browser, Page, Locator, BrowserContext } from '@playwrigh
 import { constants } from "buffer";
 import { register } from "module";
 import { chromium, webkit, firefox } from "playwright";
+import { defineConfig } from '@playwright/test';
+
+
 //test.use({ video: 'on' });
 test('login test', async ({ page}) => {
 
