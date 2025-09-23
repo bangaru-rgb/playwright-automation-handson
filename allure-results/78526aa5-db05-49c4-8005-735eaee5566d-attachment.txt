@@ -1,6 +1,0 @@
-Test started at: 2025-09-23T03:40:06.273Z
-Page is launching, hang on!!!
-You are about to enter login ID and password.
-It just clicked on Submit button.
-user loging in is bangarunaidu@gmail.co}
-The page title is Account Login

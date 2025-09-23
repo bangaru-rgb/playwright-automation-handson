@@ -1,6 +1,0 @@
-
-the current dirctory of the test file is:  C:\PlaywrightDemo\MyTests
-
-Name of the  file is:  C:\PlaywrightDemo\MyTests\login.spec.ts
-The page title is My Account
-This is the last statement of the project
