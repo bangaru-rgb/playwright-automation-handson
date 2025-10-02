@@ -15,7 +15,7 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:latest # Official Playwright Docker image
+      image: mcr.microsoft.com/playwright:v1.55.0-jammy # Official Playwright Docker image
     steps:
       - uses: actions/checkout@v4
       
