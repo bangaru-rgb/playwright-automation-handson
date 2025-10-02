@@ -1,7 +1,7 @@
 import playwrightConfig from "../playwright.config";
-import{test, expect, Browser, Page, Locator, BrowserContext } from '@playwright/test'
+import { test, expect, Browser, Page, Locator, BrowserContext } from '@playwright/test'
 import { constants } from "buffer";
-import {chromium, webkit, firefox} from "playwright";
+import { chromium, webkit, firefox } from "playwright";
 
 
 test('login test', async () => {
