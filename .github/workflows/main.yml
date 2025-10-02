@@ -18,17 +18,18 @@ jobs:
       image: mcr.microsoft.com/playwright:latest # Official Playwright Docker image
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-      - name: Install dependencies
+      
+        
+      - name: Install dependencies inside the container
         run:
           npm ci
           # - name: Install Playwright Browsers
       # -  run: npx playwright install --with-deps
       - name: Run the below Playwright test
         run: npx playwright test MyTests/login.spec.ts --workers=1
-      - uses: actions/upload-artifact@v4
+
+      - name: Upload HTML report
+        uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
