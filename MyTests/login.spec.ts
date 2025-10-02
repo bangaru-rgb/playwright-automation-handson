@@ -31,7 +31,7 @@ test("login test", async ({ page }) => {
   // await page.getByRole('link', { name: ' My Account' }).click();
   // await page.getByRole('link', {name: 'Register'}).click();
   //await MyAccountDropdown.click();
-
+  await page.pause();
   const emailID: Locator = await page
     .locator("#input-email")
     .describe("This is input email field");
