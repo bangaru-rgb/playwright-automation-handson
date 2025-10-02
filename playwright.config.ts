@@ -23,13 +23,15 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['html'],['github'],['list']],
+  //reporter: [['html'],['github'],['list']],
   // reporter: [
     // ['list'],
     // ['allure-playwright']
   //],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
-  //timeout: 60000,   // //time out for 60 seconds globally
+  //timeout: 60000,   // //time out for 60 seconds globally for all tests, every test will be failed if it exceeds 60 seconds
+    captureGitInfo: { commit: true, diff: true },
+    reporter: [['html', { outputFolder: 'playwright-report' }]],
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
@@ -39,9 +41,9 @@ export default defineConfig({
     //trace: 'on',
     //baseURL: "https://naveenautomationlabs.com/opencart/",
     screenshot:'on',
-    //actionTimeout: 10000
+    //actionTimeout: 10000 //time out for every action, like click, fill, so on
     //storageState: 'Testdata\auth.json',
-    video: 'on',
+    video: 'retain-on-failure',
   },
 
   /* Configure projects for major browsers */

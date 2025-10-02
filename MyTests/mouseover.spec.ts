@@ -15,15 +15,15 @@ test('dropdownList', async () => {
   //const browsweContext1:BrowserContext = await browser.newContext();
   const page: Page = await browser.newPage();
   await page.goto("https://www.icicibank.com/");
-      await page.waitForTimeout(4000);
+  await page.waitForTimeout(4000);
   await page.getByRole('link', { name: 'Explore Now', exact: true }).click();
-    await page.waitForTimeout(4000);
+  await page.waitForTimeout(4000);
 
   page.getByText('Resources').first().hover();
   page.getByText('Calculators').first().click();
   await page.waitForTimeout(4000);
   //page.getByText('Tax Payments').first().click;
-  page.screenshot({path: 'mousehover.png'});
+  page.screenshot({ path: 'mousehover.png' });
   await page.waitForTimeout(5000);
 
 });

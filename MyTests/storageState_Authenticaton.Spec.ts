@@ -10,9 +10,9 @@ test('login test', async () => {
  
   const page: Page = await browser.newPage()
   await page.goto("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
-  const emailID:Locator = await page.locator('#input-email');
-  const password:Locator =  await page.locator('#input-password');
-  const loginbutton = await page.locator ("[value='Login']");  
+  const emailID:Locator =  page.locator('#input-email');
+  const password:Locator =   page.locator('#input-password');
+  const loginbutton =  page.locator ("[value='Login']");  
 
   await emailID.fill("bangarunaidu@gmail.com");
   await password.fill("Test@123");
