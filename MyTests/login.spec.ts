@@ -11,19 +11,19 @@ import { constants } from "buffer";
 import { chromium, webkit, firefox } from "playwright";
 import { defineConfig } from "@playwright/test";
 
-test.use({
-  video: "retain-on-failure",
-  screenshot: "on",
-  trace: "on",
-});
+// test.use({
+//   video: "retain-on-failure",
+//   screenshot: "on",
+//   trace: "on",
+// });
 
-test("login test", async ({ page }) => {
+test("login test", async ({  }) => {
   console.log("Welcome to Playwright Automation 🎭");
   console.log("\nthe current dirctory of the test file is: ", __dirname);
   console.log("\nName of the  file is: ", __filename);
-  //const browser: Browser = await chromium.launch({ headless: false, channel: 'chrome', slowMo:1000 });
+  const browser: Browser = await chromium.launch({ headless: false, channel: 'chrome' });
   //const browsweContext1:BrowserContext = await browser.newContext();
-  //const page: Page = await browser.newPage()
+  const page: Page = await browser.newPage()
   await page.goto(
     "https://naveenautomationlabs.com/opencart/index.php?route=account/login"
   );
@@ -31,7 +31,7 @@ test("login test", async ({ page }) => {
   // await page.getByRole('link', { name: ' My Account' }).click();
   // await page.getByRole('link', {name: 'Register'}).click();
   //await MyAccountDropdown.click();
-  await page.pause();
+  //await page.pause();
   const emailID: Locator = await page
     .locator("#input-email")
     .describe("This is input email field");

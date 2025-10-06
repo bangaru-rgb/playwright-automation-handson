@@ -12,7 +12,7 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './Pages',
+  testDir: './MyTests',
   //testDir: require('path').join(__dirname, 'MyTests/MCP'),
   /* Run tests in files in parallel */
   fullyParallel: true,
