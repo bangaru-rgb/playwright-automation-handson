@@ -17,11 +17,14 @@ import { defineConfig } from "@playwright/test";
 //   trace: "on",
 // });
 
-test("login test", async ({  }) => {
+test("login test", async ({ }) => {
   console.log("Welcome to Playwright Automation 🎭");
   console.log("\nthe current dirctory of the test file is: ", __dirname);
   console.log("\nName of the  file is: ", __filename);
-  const browser: Browser = await chromium.launch({ headless: false, channel: 'chrome' });
+  const browser: Browser = await chromium.launch({
+    headless: process.env.CI ? true : false, // headless in CI, non-headless locally
+    channel: process.env.CI ? undefined : 'chrome' // use default chromium in CI, chrome locally
+  });
   //const browsweContext1:BrowserContext = await browser.newContext();
   const page: Page = await browser.newPage()
   await page.goto(
@@ -37,7 +40,7 @@ test("login test", async ({  }) => {
     .describe("This is input email field");
   const password: Locator = await page.locator("#input-password").describe("This is input password field");
   const loginbutton: Locator = await page.locator("[value='Login']").describe("This is login button");
-  await emailID.fill("bangarunaidu@gmail.com");   await password.fill("Test@123");
+  await emailID.fill("bangarunaidu@gmail.com"); await password.fill("Test@123");
   // await loginbutton.click({force: true});
   const pagetitle = await page.title();
   console.log("The page title is", pagetitle);
