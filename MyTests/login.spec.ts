@@ -1,12 +1,5 @@
 import playwrightConfig from "../playwright.config";
-import {
-  test,
-  expect,
-  Browser,
-  Page,
-  Locator,
-  BrowserContext,
-} from "@playwright/test";
+import { test, expect, Browser, Page, Locator, BrowserContext, } from "@playwright/test";
 import { constants } from "buffer";
 import { chromium, webkit, firefox } from "playwright";
 import { defineConfig } from "@playwright/test";
@@ -35,8 +28,8 @@ test("login test", async ({ }) => {
   // await page.getByRole('link', {name: 'Register'}).click();
   //await MyAccountDropdown.click();
   //await page.pause();
-  const emailID: Locator = await page
-    .locator("#input-email")
+  
+  const emailID: Locator = await page.locator("#input-email")
     .describe("This is input email field");
   const password: Locator = await page.locator("#input-password").describe("This is input password field");
   const loginbutton: Locator = await page.locator("[value='Login']").describe("This is login button");
