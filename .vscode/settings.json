@@ -1,9 +1,10 @@
 {
-  "github.copilot.chat.mcpServers": {
+  "mcpServers": {
     "playwright": {
-      "id": "playwright",
       "command": "npx",
-      "args": ["playwright", "mcp"]
+      "args": [
+        "@playwright/mcp@latest"
+      ]
     }
   }
 }
