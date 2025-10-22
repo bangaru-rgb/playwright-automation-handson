@@ -34,7 +34,7 @@ test("login test", async ({ }) => {
   const password: Locator = page.locator("#input-password").describe("This is input password field");
   const loginbutton: Locator = page.locator("[value='Login']").describe("This is login button");
   await emailID.fill("bangarunaidu@gmail.com"); await password.fill("Test@123");
-  // await loginbutton.click({force: true});
+  await loginbutton.click();
   const pagetitle = await page.title();
   console.log("The page title is", pagetitle);
   await page.screenshot({ path: "homepage.png" });

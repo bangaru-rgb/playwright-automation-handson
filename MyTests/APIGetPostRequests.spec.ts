@@ -41,11 +41,23 @@ test('API Post request', async ({ request }) => {
             }
         }
     );
-
+    expect(response.status()).toBe(200);
     console.log("Status Code: ", response.status());
-
     const responseObject = await response.text();
-    console.log("response of the Get request is ", responseObject);
+    // console.log("response of the Get request is ", (responseObject));
+    // Log just first 200 characters
+    console.log("Response preview:", responseObject.substring(0, 200));
+
+    // Check for error messages
+if (responseObject.includes("alert-danger")) {
+    console.log("Error found in response");
+} else {
+    console.log("No errors found");
+}
+
+if (responseObject.includes("Warning: E-Mail Address is already registered!")) {
+    console.log("✓ Email already registered error found");
+}
 
 
 });

@@ -8,6 +8,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@playwright/mcp": "^0.0.43",
     "@playwright/test": "^1.56.1",
     "@types/node": "^24.1.0",
     "allure-playwright": "^3.4.1",
