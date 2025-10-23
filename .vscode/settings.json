@@ -3,8 +3,12 @@
     "playwright": {
       "command": "npx",
       "args": [
-        "@playwright/mcp@latest"
+        "playwright",
+        "test",
+        "--reporter=list"
       ]
     }
-  }
+  },
+  "playwright.env": {},
+  "playwright.reuseBrowser": true
 }
