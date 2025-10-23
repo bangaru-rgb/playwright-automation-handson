@@ -12,8 +12,7 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './MyTests',
-  //testDir: require('path').join(__dirname, 'MyTests/MCP'),
+  testDir: './axionic/tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -25,68 +24,82 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   //reporter: [['html'],['github'],['list']],
   // reporter: [
-    // ['list'],
-    // ['allure-playwright']
+  // ['list'],
+  // ['allure-playwright']
   //],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   //timeout: 60000,   // //time out for 60 seconds globally for all tests, every test will be failed if it exceeds 60 seconds
-    captureGitInfo: { commit: true, diff: true },
-    reporter: [['html', { outputFolder: 'playwright-report' }]],
+  captureGitInfo: { commit: true, diff: true },
+  reporter: [['html', { outputFolder: 'playwright-report' }]],
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    //trace: 'on',
-    //baseURL: "https://naveenautomationlabs.com/opencart/",
-    screenshot:'on',
-    //actionTimeout: 10000 //time out for every action, like click, fill, so on
-    //storageState: 'Testdata\auth.json',
+    screenshot: 'on',
     video: 'retain-on-failure',
+
+    // API testing specific settings
+    extraHTTPHeaders: {
+      'Accept': 'application/json'
+    },
   },
+
+  // Add API testing project
+  projects: [
+    {
+      name: 'axionic-api-tests',
+      testDir: './axionic/tests',
+      use: {
+        baseURL: process.env.TEST_ENV === 'staging'
+          ? 'https://wapis.discretal.com'
+          : 'https://wapi.discretal.com',
+      },
+    }
+  ],
 
   /* Configure projects for major browsers */
 
 
-//  projects: [
-//    {
-//     name: 'chromium',
-//      use: { ...devices['Desktop Chrome'] },
-//    },
+  //  projects: [
+  //    {
+  //     name: 'chromium',
+  //      use: { ...devices['Desktop Chrome'] },
+  //    },
 
-//    {
-//      name: 'firefox',
-//      use: { ...devices['Desktop Firefox'] },
-//    },
+  //    {
+  //      name: 'firefox',
+  //      use: { ...devices['Desktop Firefox'] },
+  //    },
 
-//    {
-//      name: 'webkit',
-//      use: { ...devices['Desktop Safari'] },
-//    },
+  //    {
+  //      name: 'webkit',
+  //      use: { ...devices['Desktop Safari'] },
+  //    },
 
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
+  /* Test against mobile viewports. */
+  // {
+  //   name: 'Mobile Chrome',
+  //   use: { ...devices['Pixel 5'] },
+  // },
+  // {
+  //   name: 'Mobile Safari',
+  //   use: { ...devices['iPhone 12'] },
+  // },
 
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
+  /* Test against branded browsers. */
+  // {
+  //   name: 'Microsoft Edge',
+  //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
+  // },
+  // {
+  //   name: 'Google Chrome',
+  //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+  // },
   // ],
-  
-  
+
+
 
   /* Run your local dev server before starting the tests */
   // webServer: {
