@@ -28,20 +28,20 @@ test("login test", async ({ }) => {
   // await page.getByRole('link', {name: 'Register'}).click();
   //await MyAccountDropdown.click();
   //await page.pause();
-  
+
   const emailID: Locator = await page.locator("#input-email")
     .describe("This is input email field");
   const password: Locator = await page.locator("#input-password").describe("This is input password field");
   const loginbutton: Locator = await page.locator("[value='Login']").describe("This is login button");
-  await emailID.fill("bangarunaidu@gmail.com"); 
+  await emailID.fill("bangarunaidu@gmail.com");
   await password.fill("Test@123");
-  // await loginbutton.click({force: true});
+  await loginbutton.click();
   const pagetitle = await page.title();
   console.log("The page title is", pagetitle);
   await page.screenshot({ path: "homepage.png" });
- await expect(page).toHaveScreenshot();
+  await expect(page).toHaveScreenshot();
   // await page.waitForTimeout(60000);
- expect(pagetitle).toEqual('My Account');
+  expect(pagetitle).toEqual('My Account');
 
   //await page.waitForTimeout(10000);
   //await browser.close();
