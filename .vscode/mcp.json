@@ -5,7 +5,8 @@
       "command": "npx",
       "args": [
         "playwright",
-        "run-test-mcp-server"
+        "test",
+        "--reporter=list"
       ]
     }
   },
