@@ -28,7 +28,7 @@ test("login test", async ({ }) => {
   // await page.getByRole('link', {name: 'Register'}).click();
   //await MyAccountDropdown.click();
   //await page.pause();
-
+ console.log("The is a sample test file to demonstrate the playwright test framework");
   const emailID: Locator = await page.locator("#input-email")
     .describe("This is input email field");
   const password: Locator = await page.locator("#input-password").describe("This is input password field");
