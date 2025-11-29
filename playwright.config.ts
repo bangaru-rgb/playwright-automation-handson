@@ -12,7 +12,7 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './axionic/tests',
+  testDir: './MyTests',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -39,25 +39,20 @@ export default defineConfig({
     trace: 'on-first-retry',
     screenshot: 'on',
     video: 'retain-on-failure',
-
-    // API testing specific settings
-    extraHTTPHeaders: {
-      'Accept': 'application/json'
-    },
   },
 
   // Add API testing project
-  projects: [
-    {
-      name: 'axionic-api-tests',
-      testDir: './axionic/tests',
-      use: {
-        baseURL: process.env.TEST_ENV === 'staging'
-          ? 'https://wapis.discretal.com'
-          : 'https://wapi.discretal.com',
-      },
-    }
-  ],
+  // projects: [
+  //   {
+  //     name: 'axionic-api-tests',
+  //     testDir: './axionic/tests',
+  //     use: {
+  //       baseURL: process.env.TEST_ENV === 'staging'
+  //         ? 'https://wapis.discretal.com'
+  //         : 'https://wapi.discretal.com',
+  //     },
+  //   }
+  // ],
 
   /* Configure projects for major browsers */
 
